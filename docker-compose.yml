@@ -16,7 +16,10 @@ services:
       - PYTHONUNBUFFERED=1
 
   api:
-    image: edeng23/binance-trade-bot
+    #image: edeng23/binance-trade-bot
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: binance_trader_api
     working_dir: /app
     volumes:

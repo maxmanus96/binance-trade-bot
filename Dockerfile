@@ -5,7 +5,7 @@ WORKDIR /install
 RUN apt-get update && apt-get install -y rustc
 
 COPY requirements.txt /requirements.txt
-RUN pip install --prefix=/install -r /requirements.txt
+RUN pip install --prefix=/install -r /requirements.txt && pip uninstall werkzeug -y && pip install pip install -v https://github.com/pallets/werkzeug/archive/refs/tags/2.0.3.tar.gz
 
 FROM python:3.8-slim
 
